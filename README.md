@@ -31,4 +31,4 @@
 
 ---
 
-Have fun with NOVA — talk to it, play with it, and explore what it can do! 🚀  
+Have fun with NOVA — talk to it, play with it, and explore what it can do! 
