@@ -103,16 +103,16 @@ import google.generativeai as genai
 import threading
 
 
-# ✅ Gemini API Configuration
+#  Gemini API Configuration
 genai.configure(api_key="AIzaSyD_EqKsaD9zOd-tf3uWGQ__Nxi5O8ABASo")  #  Replace with your real key
 gemini_model = genai.GenerativeModel("models/gemini-2.0-flash")
 
-# ✅ Other setup
+#  Other setup
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 newsapi = "734f846e323d46b591894b7fda4101af"  # Replace with your NewsAPI key
 
-# ✅ Text-to-Speech
+#  Text-to-Speech
 def speak(text): 
     engine.say(text)
     engine.runAndWait()
@@ -122,7 +122,7 @@ def threaded_speak(text):
     speak_thread = threading.Thread(target=speak, args=(text,))
     speak_thread.start()
 
-# ✅ Command Processor
+#  Command Processor
 def processCommand(c):
     c = c.lower()
     if "open google" in c:
@@ -162,7 +162,7 @@ def processCommand(c):
             speak("An error occurred while fetching news.")
             print("News error:", e)
     else:
-        # ✅ Let Gemini handle general questions
+        #  Let Gemini handle general questions
         try:
             response = gemini_model.generate_content(c)
             speak(response.text)
@@ -170,7 +170,7 @@ def processCommand(c):
             speak("Sorry, I couldn't understand or process your request.")
             print("Gemini error:", e)
 
-# ✅ Wake word listener and main loop
+#  Wake word listener and main loop
 if __name__ == "__main__":
     speak("Initializing NOVA ...")
     
